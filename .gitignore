@@ -1,0 +1,20 @@
+# Node.js
+node_modules
+
+# Slidev
+dist
+public/
+index.html
+.remote-assets
+components.d.ts
+
+# Environment
+*.env
+*.local
+
+# Logs
+*.log
+
+# OS Stuff
+.DS_Store
+._*
