@@ -1,24 +1,20 @@
 {
-  "name": "zed-news-talk-slides",
+  "name": "zed-news-talk-ogn-slides",
   "description": "How I built an automated podcast powered by Python, LLMs and 11ty",
   "license": "BSD-3-Clause",
   "private": true,
-  "author": {
-    "name": "Victor",
-    "email": "victor.miti@torchbox.com"
-  },
+  "author": "Victor Miti <https://github.com/engineervix/>",
   "scripts": {
-    "build": "slidev build --out public",
-    "build:gitlab": "slidev build --out public --base=/zed-news-talk/",
+    "build": "slidev build",
     "start": "slidev --open",
     "export": "slidev export"
   },
   "dependencies": {
-    "@slidev/cli": "^0.43.7",
+    "@slidev/cli": "^0.46.1",
     "@slidev/theme-default": "latest",
     "@slidev/theme-seriph": "latest"
   },
   "volta": {
-    "node": "18.18.0"
+    "node": "18.19.0"
   }
 }

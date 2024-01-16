@@ -6,8 +6,8 @@ colorSchema: 'dark'
 highlighter: shiki
 lineNumbers: false
 info: |
-  ## Presented by Victor Miti at Torchbox Tech Conference 2023
-  Held in Bristol on October 18.
+  ## Presented by Victor Miti at [#OGN56](https://www.meetup.com/oxford-geek-night/events/297539007/)
+  Held in Oxford on Wednesday 17th January 2024.
 
   Slides powered by [Sli.dev](https://sli.dev)
 drawings:

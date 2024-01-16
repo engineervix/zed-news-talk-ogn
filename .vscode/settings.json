@@ -1,5 +1,9 @@
 {
-    "[markdown]": {
-        "editor.formatOnSave": false
-    }
+  "[markdown]": {
+    "editor.formatOnSave": false
+  },
+  "yaml.schemas": {
+    "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml",
+    "https://json.schemastore.org/github-action.json": "file:///Users/victor/vix/Documents/_dev/00_Growth/00_talks/slides-ogn-56/.github/workflows/deploy.yml"
+  }
 }
