@@ -26,7 +26,7 @@ hideInToc: true
 
 <style>
   .overlay {
-    background-color: rgba(0, 0, 0, 0.5); /* Dark background color with some transparency */
+    background-color: rgba(0, 0, 0, 0.65); /* Dark background color with some transparency */
     padding: 20px;
   }
 </style>
@@ -52,7 +52,7 @@ transition: fade
   "name": "Victor Miti",
   "country": "Zambia 🇿🇲",
   "likes": [
-    "🛠️ building, breaking and fixing things",
+    "🛠️ building and fixing things",
     "🏃 running",
     "🍲 experimenting with food",
     "🎵 making music",
@@ -266,21 +266,65 @@ transition: fade
 ---
 
 ---
+layout: default
+transition: fade
+---
+
+```python
+import random
+
+def random_dig_in():
+    variations = [
+        "Without any more delay, let's jump right in.",
+        "No time to waste, let's get started.",
+        "Let's not wait any longer, it's time to delve in.",
+        "Without further ado, let's dive in.",
+        "Without prolonging the anticipation, let's begin our exploration.",
+        "Time to embark on our news journey. Let's get to it.",
+    ]
+
+    return random.choice(variations)
+```
+
+---
+layout: default
+transition: fade
+---
+
+<style>
+  .larger-code code {
+    font-size: 1.5em;
+  }
+</style>
+
+<div class="larger-code">
+
+```python
+model = "mistralai/Mixtral-8x7B-Instruct-v0.1"
+```
+
+```txt
+The date is {date}. You are {podcast_host}, a fun and witty scriptwriter,
+content creator and podcast host. You host the Zed News Podcast
+- a news and current affairs podcast which runs Monday to Friday.
+You are given the news from various sources as indicated below.
+You have a microphone in front of you, your task is to present
+today's episode (number {episode_number}), ensuring that you cover
+all the news from all the sources. Where necessary, consolidate any
+similar news items from different sources. Ensure that the podcast is 
+presented in a logical, coherent manner so it's easy to follow.
+At the end, inform your audience that you are actually not human.
+Remember: speak in a conversational tone, leave no news item behind
+and do not repeat content. Do not worry about SFX, music, captions, etc.
+just speak directly as if you are live on air.
+```
+</div>
+
+---
 layout: image
 image: https://res.cloudinary.com/engineervix/image/upload/v1697574721/slidev/zed-news-talk/004.png
 transition: fade
 ---
-
-<div class="abs-br m-6 flex gap-2">
-  <a href="https://zed.up.railway.app"
-     target="_blank" 
-     rel="noopener noreferrer" 
-     alt="See the code" 
-     title="Show me the code"
-     class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-black">
-    <carbon-repo-source-code />
-  </a>
-</div>
 
 ---
 layout: image
@@ -288,33 +332,11 @@ image: https://res.cloudinary.com/engineervix/image/upload/v1697574721/slidev/ze
 transition: fade
 ---
 
-<div class="abs-br m-6 flex gap-2">
-  <a href="https://zed.up.railway.app"
-     target="_blank" 
-     rel="noopener noreferrer" 
-     alt="See the code" 
-     title="Show me the code"
-     class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-black">
-    <carbon-repo-source-code />
-  </a>
-</div>
-
 ---
 layout: image
 image: https://res.cloudinary.com/engineervix/image/upload/v1697574721/slidev/zed-news-talk/006.png
 transition: fade
 ---
-
-<div class="abs-br m-6 flex gap-2">
-  <a href="https://zed.up.railway.app"
-     target="_blank" 
-     rel="noopener noreferrer" 
-     alt="See the code" 
-     title="Show me the code"
-     class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-black">
-    <carbon-repo-source-code />
-  </a>
-</div>
 
 ---
 layout: image
@@ -322,50 +344,59 @@ image: https://res.cloudinary.com/engineervix/image/upload/v1697574721/slidev/ze
 transition: fade
 ---
 
-<div class="abs-br m-6 flex gap-2">
-  <a href="https://zed.up.railway.app"
-     target="_blank" 
-     rel="noopener noreferrer" 
-     alt="See the code" 
-     title="Show me the code"
-     class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-black">
-    <carbon-repo-source-code />
-  </a>
-</div>
-
 ---
 layout: image
 image: https://res.cloudinary.com/engineervix/image/upload/v1697574721/slidev/zed-news-talk/008.png
 transition: fade
 ---
 
-<div class="abs-br m-6 flex gap-2">
-  <a href="https://zed.up.railway.app"
-     target="_blank" 
-     rel="noopener noreferrer" 
-     alt="See the code" 
-     title="Show me the code"
-     class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-black">
-    <carbon-repo-source-code />
-  </a>
-</div>
+---
+layout: default
+transition: fade
+---
+
+```md
+---
+title: "Wednesday, January 17th, 2024"
+description: This is the one hundred and sixtieth episode of the podcast.
+tags: episode
+episode: "160"
+date: 2024-01-17T14:11:03.440004+02:00
+mp3:
+    url: https://foo.s3.region.amazonaws.com/zednews/2024-01-17_podcast_dist.mp3
+    length: 9 minutes, 29 seconds
+    size: 8.71 MB
+rss:
+    enclosure_length: 9137900
+    itunes_duration: 09:29
+presenter: Ayanda
+locale:
+    id: en-ZA
+    name: English (South Africa)
+production_time: 4 minutes, 16 seconds
+words:
+    count: 1,314
+    rate: 139 words per minute
+references:
+    count: 24
+    sources: 3
+articles:
+    - source: News Diggers!
+      url: https://diggers.news/courts/2024/01/17/suspected-drug-foobar/
+      title: "Suspect asks to take fresh plea after pleading guilty to drug trafficking"
+    - source: Mwebantu
+      url: https://www.mwebantu.com/bank-of-zambia-targets-inflation-control/
+      title: "Bank of Zambia targets inflation control"
+    - source: Zambia National Broadcasting Corporation (ZNBC)
+      url: https://www.znbc.co.zm/news/mpika-shuts-down-17-restaurants/
+      title: "Mpika shuts down 17 restaurants"
+```
 
 ---
 layout: image
 image: https://res.cloudinary.com/engineervix/image/upload/v1697574721/slidev/zed-news-talk/toolchain.png
 transition: fade
 ---
-
-<div class="abs-br m-6 flex gap-2">
-  <a href="https://zed.up.railway.app"
-     target="_blank" 
-     rel="noopener noreferrer" 
-     alt="See the code" 
-     title="Show me the code"
-     class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-black">
-    <carbon-repo-source-code />
-  </a>
-</div>
 
 ---
 transition: slide-up
@@ -391,6 +422,7 @@ image: https://res.cloudinary.com/engineervix/image/upload/v1697623097/slidev/ze
 
 - Create audio versions of articles / posts ([example](https://townhall.hashnode.com/whats-new-at-hashnode-feb-march-23))
 - Use GPT to generate summaries of articles / posts
+- Self-host your podcasts
 
 <!--
 - what have you learned from the experience?
