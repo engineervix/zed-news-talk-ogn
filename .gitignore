@@ -3,7 +3,6 @@ node_modules
 
 # Slidev
 dist
-public/
 index.html
 .remote-assets
 components.d.ts

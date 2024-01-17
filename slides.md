@@ -1,6 +1,6 @@
 ---
 theme: seriph
-background: https://res.cloudinary.com/engineervix/image/upload/v1697545495/slidev/zed-news-talk/zed-news.png
+background: /landing-bg.jpg
 class: text-center
 colorSchema: 'dark'
 highlighter: shiki
@@ -9,7 +9,7 @@ info: |
   ## Presented by Victor Miti at [#OGN56](https://www.meetup.com/oxford-geek-night/events/297539007/)
   Held in Oxford on Wednesday 17th January 2024.
 
-  Slides powered by [Sli.dev](https://sli.dev)
+  [Source](https://github.com/engineervix/zed-news-talk-ogn)
 drawings:
   persist: false
 transition: slide-left
@@ -17,6 +17,19 @@ title: How I built an automated podcast powered by Python, LLMs and 11ty
 mdc: true
 hideInToc: true
 ---
+
+<div class="overlay">
+  <h1>
+    building <strong>zed news</strong> &mdash; an automated podcast powered by Python, LLMs and 11ty
+  </h1>
+</div>
+
+<style>
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Dark background color with some transparency */
+    padding: 20px;
+  }
+</style>
 
 <div class="abs-br m-6 flex gap-2">
   <a href="https://zednews.pages.dev"
@@ -28,6 +41,35 @@ hideInToc: true
     <carbon-view />
   </a>
 </div>
+
+---
+layout: default
+transition: fade
+---
+
+```json
+{
+  "name": "Victor Miti",
+  "country": "Zambia 🇿🇲",
+  "likes": [
+    "🛠️ building, breaking and fixing things",
+    "🏃 running",
+    "🍲 experimenting with food",
+    "🎵 making music",
+    "🐶 dogs"
+  ],
+  "work": {
+    "org": "Torchbox",
+    "url": "torchbox.com",
+    "role": "developer"
+  },
+  "links": {
+    "blog": "blog.victor.co.zm",
+    "github": "@engineervix",
+    "x": "@engineervix"
+  }
+}
+```
 
 ---
 layout: iframe
@@ -53,8 +95,8 @@ image: https://source.unsplash.com/TuAtSs8peoM/1080x1920
 # Why did I build this?
 
 - I'm generally terrible at keeping up with current affairs
-- I wanted to learn how to work with AI tools while solving a real problem
 - I was inspired by [Hackercast](https://camrobjones.com/hackercast/) -- an AI-generated podcast summary of Hacker News, by [Cameron Jones](https://camrobjones.com/)
+- Opportunity to learn how to work with AI tools while solving a real problem
 
 <!--
 - time: 1.5 minutes 
@@ -113,9 +155,17 @@ layout: center
 transition: fade
 ---
 
+<style>
+  .larger-code code {
+    font-size: 2.5em;
+  }
+</style>
+
+<div class="larger-code">
 ```sh
-30 16 * * 1-5 $HOME/SITES/zed-news/cron.sh >> $HOME/SITES/zed-news/build_`date +\%Y\%m\%d_\%H\%M\%S`.log 2>&1
+00 14 * * 1-5 $HOME/SITES/zed-news/cron.sh
 ```
+</div>
 
 ---
 layout: default
@@ -125,31 +175,26 @@ hideInToc: true
 
 ```sh
 # 1. cd to project directory
-cd "${HOME}/SITES/zed-news" || { echo "Failed to change directory."; exit 1; }
-
-# Source the .env file so we can retrieve healthchecks.io ping URL
-# shellcheck source=/dev/null
-source .env
+cd "${HOME}/SITES/zed-news"
 
 # 2. Activate virtual environment
-# shellcheck source=/dev/null
-source "${HOME}/Env/zed-news/bin/activate" || { echo "Failed to activate virtual environment."; send_healthcheck_failure; exit 1; }
+source "${HOME}/Env/zed-news/bin/activate"
 
 # 3. git pull
-git pull || { echo "Failed to pull changes from Git."; send_healthcheck_failure; exit 1; }
+git pull
 
-# 4. Run script inside docker container
-inv up --build || { echo "Failed to build Docker container."; send_healthcheck_failure; exit 1; }
-docker-compose run --rm app invoke toolchain || { echo "Failed to run script inside Docker container."; send_healthcheck_failure; exit 1; }
-inv down || { echo "Failed to stop Docker container."; send_healthcheck_failure; exit 1; }
+# 4. Run podcast toolchain inside docker container
+invoke up --build
+docker-compose run --rm app invoke toolchain
+invoke down
 
 # 5. commit changes
 today_iso=$(date --iso)
-git add . || { echo "Failed to stage changes for commit."; send_healthcheck_failure; exit 1; }
-git commit --no-verify -m "chore: ✨ new episode 🎙️ » ${today_iso}" || { echo "Failed to commit changes."; send_healthcheck_failure; exit 1; }
+git add .
+git commit --no-verify -m "chore: ✨ new episode 🎙️ » ${today_iso}"
 
 # 6. push changes to remote
-git push origin main || { echo "Failed to push changes to remote repository."; send_healthcheck_failure; exit 1; }
+git push origin main
 ```
 
 ---
