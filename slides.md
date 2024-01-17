@@ -244,18 +244,6 @@ transition: fade
 ---
 
 ---
-layout: iframe
-url: https://spacy.io/
-transition: fade
----
-
----
-layout: iframe
-url: https://www.nltk.org/
-transition: fade
----
-
----
 layout: image-right
 image: https://source.unsplash.com/49uySSA678U/1080x1920
 transition: fade
@@ -272,68 +260,10 @@ transition: fade
 - Tortoise
 
 ---
-layout: iframe
-url: https://tortoise.github.io/
-transition: fade
----
-
----
-layout: iframe
-url: https://lucumr.pocoo.org/2016/10/30/i-dont-understand-asyncio/
-transition: fade
----
-
----
-layout: center
-transition: fade
----
-
-```python
-from tortoise import fields
-from tortoise.models import Model
-from tortoise.validators import RegexValidator
-
-from app.core.utilities import today
-
-
-class Article(Model):
-    """An article fetched from an online source"""
-
-    # core fields based on fetched data
-    source = fields.CharField(max_length=255, description="The source of the article")
-    url = fields.CharField(max_length=2047, validators=[RegexValidator(r"^(http|https)://", 0)])
-    title = fields.CharField(max_length=511)
-    content = fields.TextField(description="The article content as fetched from the source")
-    category = fields.CharField(max_length=255, required=False, null=True)
-
-    # additional fields
-    date = fields.DateField(default=today, description="The date the article was published")
-    summary = fields.TextField(required=False, null=True, description="The AI generated summary of the article")
-    episode = fields.ForeignKeyField("models.Episode", related_name="articles", null=True, required=False)
-
-    class Meta:
-        table_description = "Articles fetched from various sources"
-
-    def __str__(self):
-        return self.title
-```
-
----
 layout: image
 image: https://res.cloudinary.com/engineervix/image/upload/v1697574721/slidev/zed-news-talk/003.png
 transition: fade
 ---
-
-<div class="abs-br m-6 flex gap-2">
-  <a href="https://zed.up.railway.app"
-     target="_blank" 
-     rel="noopener noreferrer" 
-     alt="See the code" 
-     title="Show me the code"
-     class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-black">
-    <carbon-repo-source-code />
-  </a>
-</div>
 
 ---
 layout: image
@@ -450,17 +380,6 @@ image: https://res.cloudinary.com/engineervix/image/upload/v1697625801/slidev/ze
 - [plyr.io](https://plyr.io/)
 - ua-parser-js
 
-<div class="abs-br m-6 flex gap-2">
-  <a href="https://zed.up.railway.app"
-     target="_blank" 
-     rel="noopener noreferrer" 
-     alt="See the code" 
-     title="Show me the code"
-     class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-black">
-    <carbon-repo-source-code />
-  </a>
-</div>
-
 ---
 transition: slide-up
 layout: image-right
@@ -484,5 +403,23 @@ layout: center
 hideInToc: true
 ---
 
+<style>
+  .qr-code {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+</style>
 
-<h1><a href="https://github.com/engineervix/zed-news"><carbon-logo-github /> github.com/engineervix/zed-news</a></h1>
+<div class="qr-code">
+  <img
+    src="/qr-code.png"
+    alt="github.com/engineervix/zed-news"
+    width="256"
+  />
+
+  <h1>
+    <a href="https://github.com/engineervix/zed-news"><carbon-logo-github /> github.com/engineervix/zed-news
+    </a>
+  </h1>
+</div>
